@@ -2,37 +2,41 @@
 
 **Transcriptomic density calculation from MERFISH slices to a 3D brain atlas**
 
-TME-types is a scientific analysis project for deriving and visualizing spatial transcriptomic density maps from MERFISH imaging data and aligning them with a three-dimensional brain coordinate framework.
+TME-types is a scientific analysis project for deriving and visualizing spatial transcriptomic density maps from MERFISH imaging data (from the Allen Institute) and aligning them with a three-dimensional brain coordinate framework.
 
 This repository contains scripts and Jupyter notebooks to:
 
 - preprocess MERFISH slice data  
 - compute transcriptomic density maps  
 - align densities with a 3D brain atlas  
-- visualize spatial patterns across brain regions  
+- visualize spatial patterns across brain regions
+- validate results against literature
 
 ---
 
 ## Overview
 
-Spatial transcriptomics technologies — such as MERFISH — produce high-resolution, molecule-level maps of gene expression across biological tissue sections. TME-types bridges 2D tissue data and a reference 3D brain atlas by calculating *transcriptomic densities* across space and visualizing them in anatomical context.
+This it the first part of the pipeline for the paper: *A multimodal spatial atlas of transcriptomic, morphological, and electrophysiological cell type densities in the mouse brain*.
 
-This enables:
+- Notebooks lead you through each step. To improve performance we use multiprocessing, given the current Python version. < soon legacy >
+- For larger computational steps we rely on Python scripts. Shell scripts are provided to see resource requirements. 
 
-- comparison of spatial patterns between samples  
-- integration of multi-slice data into three dimensions  
-- deeper insight into structure–expression relationships  
+At the end of this part: we will process MERFISH data from the Allen Institute with density values for all 5k transcriptomic cell types in each brain region.
+End products are `.csv` and binary `.pickle` files. 
+The next part of the pipeline can be found here: https://github.com/YannRoussel/probabilistic_mapping_extention
+For the common coordinate framework (brain atlas) we relied on this work: https://github.com/BlueBrain/ccfv3a-extended-atlas
+
 
 ---
 
 ## Repository Structure
-
+```bash
 TME-types/
 │
 ├── notebooks/ # Jupyter notebooks for analysis & visualization
 ├── scripts/ # Python scripts for data processing and density computation
 ├── README.md # This file
-
+```
 
 ---
 
@@ -110,7 +114,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Citation
 
 If you use this code in published research, please cite the repository appropriately.
+Paper under review: A multimodal spatial atlas of transcriptomic, morphological, and electrophysiological cell type densities in the mouse brain
 
 ## Acknowledgments
 
-Special thanks to all contributors and collaborators who helped bring this project to life!
+The development of this software was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de Lausanne (EPFL), from the Swiss government's ETH Board of the Swiss Federal Institutes of Technology. Copyright (c) 2024 Blue Brain Project/EPFL
+
+Special thanks to all contributors and collaborators who helped!
